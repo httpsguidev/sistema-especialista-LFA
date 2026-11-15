@@ -2,6 +2,7 @@ import math
 
 
 PRIORIDADES_VALIDAS = {"alta", "media", "baixa"}
+DIFICULDADES_VALIDAS = {"sim", "nao"}
 
 
 def validarIdentificacao(disciplina: str, conteudo: str) -> None:
@@ -44,5 +45,16 @@ def validarConsistenciaAcerto(
 
 
 def validarPrioridadeDeclarada(prioridadeDeclarada: str) -> None:
-    if prioridadeDeclarada not in PRIORIDADES_VALIDAS:
+    if (
+        not isinstance(prioridadeDeclarada, str)
+        or prioridadeDeclarada not in PRIORIDADES_VALIDAS
+    ):
         raise ValueError("A prioridade deve ser alta, media ou baixa.")
+
+
+def validarDificuldadeDeclarada(dificuldadeDeclarada: str) -> None:
+    if (
+        not isinstance(dificuldadeDeclarada, str)
+        or dificuldadeDeclarada not in DIFICULDADES_VALIDAS
+    ):
+        raise ValueError("A dificuldade deve ser sim ou nao.")
