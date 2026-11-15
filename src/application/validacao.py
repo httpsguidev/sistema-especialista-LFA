@@ -1,6 +1,9 @@
 import math
 
 
+PRIORIDADES_VALIDAS = {"alta", "media", "baixa"}
+
+
 def validarIdentificacao(disciplina: str, conteudo: str) -> None:
     validarTextoObrigatorio(disciplina, "disciplina")
     validarTextoObrigatorio(conteudo, "conteúdo")
@@ -38,3 +41,8 @@ def validarConsistenciaAcerto(
 
     if questoesCorretas > questoesRealizadas:
         raise ValueError("Questões corretas não podem superar questões realizadas.")
+
+
+def validarPrioridadeDeclarada(prioridadeDeclarada: str) -> None:
+    if prioridadeDeclarada not in PRIORIDADES_VALIDAS:
+        raise ValueError("A prioridade deve ser alta, media ou baixa.")
