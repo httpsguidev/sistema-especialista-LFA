@@ -24,3 +24,17 @@ def validarHorasEstudo(horasEstudo: float) -> None:
 def validarQuantidadeQuestao(quantidade: int, nomeCampo: str) -> None:
     if isinstance(quantidade, bool) or not isinstance(quantidade, int) or quantidade < 0:
         raise ValueError(f"{nomeCampo} deve ser uma quantidade inteira não negativa.")
+
+
+def validarConsistenciaAcerto(
+    questoesRealizadas: int,
+    questoesCorretas: int,
+) -> None:
+    validarQuantidadeQuestao(questoesRealizadas, "Questões realizadas")
+    validarQuantidadeQuestao(questoesCorretas, "Questões corretas")
+
+    if questoesRealizadas == 0 and questoesCorretas != 0:
+        raise ValueError("Não pode haver acertos sem questões realizadas.")
+
+    if questoesCorretas > questoesRealizadas:
+        raise ValueError("Questões corretas não podem superar questões realizadas.")
