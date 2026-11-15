@@ -13,5 +13,6 @@ class ResultadoAnalise:
     regraAplicada: str | None = None
     recomendacao: str | None = None
     fatosUtilizados: tuple[str, ...] = ()
+    avisos: tuple[str, ...] = ()
     indiceAtencao: float | None = None
     regraGeralAplicada: str | None = None
