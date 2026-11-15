@@ -22,7 +22,12 @@ def aplicarInferenciaEspecifica(
             fatosUtilizados=("questoesRealizadas=0",),
         )
 
-    validarFatosDaInferencia(perfilPrevisto, percentualAcertos, percentualErros)
+    validarFatosDaInferencia(
+        conteudo.dificuldadeDeclarada,
+        perfilPrevisto,
+        percentualAcertos,
+        percentualErros,
+    )
     regra = REGRAS_ESPECIFICAS[(perfilPrevisto, conteudo.dificuldadeDeclarada)]
     fatosUtilizados = (
         f"perfilPrevisto={perfilPrevisto}",
@@ -42,6 +47,7 @@ def aplicarInferenciaEspecifica(
 
 
 def validarFatosDaInferencia(
+    dificuldadeDeclarada: str,
     perfilPrevisto: str | None,
     percentualAcertos: float | None,
     percentualErros: float | None,
@@ -49,7 +55,7 @@ def validarFatosDaInferencia(
     if perfilPrevisto not in PERFIS_VALIDOS:
         raise ValueError("O perfil previsto deve ser apoio ou autonomia.")
 
-    if conteudo.dificuldadeDeclarada not in DIFICULDADES_VALIDAS:
+    if dificuldadeDeclarada not in DIFICULDADES_VALIDAS:
         raise ValueError("A dificuldade declarada deve ser sim ou nao.")
 
     if percentualAcertos is None or percentualErros is None:
