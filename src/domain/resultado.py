@@ -23,3 +23,9 @@ class ResultadoAnalise:
 class AnaliseGeral:
     ranking: tuple[ResultadoAnalise, ...]
     dadosInsuficientes: tuple[ResultadoAnalise, ...]
+
+
+@dataclass(frozen=True)
+class RelatorioAnalise:
+    resultadosEspecificos: tuple[ResultadoAnalise, ...]
+    analiseGeral: AnaliseGeral
