@@ -31,13 +31,16 @@ O sistema trabalha exclusivamente com dados fictícios e tem finalidade acadêmi
 
 ```text
 .
-├── main.py             # Ponto de entrada; será implementado na etapa adequada
+├── data/               # Dataset fictício para o treinamento
+├── notebooks/          # Demonstração acadêmica reproduzível
+├── src/                # Domínio, aplicação, infraestrutura e apresentação
+├── main.py             # Ponto de entrada com três casos demonstrativos
 ├── README.md           # Apresentação e instruções da aplicação
 ├── requirements.txt    # Dependências Python reproduzíveis
 └── .gitignore          # Arquivos locais e temporários excluídos do Git
 ```
 
-Os módulos de domínio, validação, métricas, treinamento, inferência e testes serão criados de forma incremental, somente quando suas etapas forem iniciadas.
+Os módulos separam domínio, validação, métricas, treinamento, inferência, processamento em lote, relatórios e gráficos.
 
 ## Diferenciais do projeto
 
@@ -60,6 +63,16 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
+## Execução
+
+Execute a demonstração de três conteúdos em duas disciplinas:
+
+```bash
+python main.py
+```
+
+A execução treina o modelo com o dataset fictício, mostra a análise específica de cada conteúdo e apresenta o ranking geral. Para a demonstração acadêmica com avaliação do modelo e gráficos, abra `notebooks/demonstracao.ipynb` em uma IDE com suporte a notebooks.
+
 ## Estado de desenvolvimento
 
-O projeto está na fase inicial de preparação. A implementação seguirá uma sequência incremental com testes e commits pequenos por unidade funcional. A documentação de requisitos e de planejamento é mantida fora desta pasta de aplicação.
+O projeto usa dados fictícios e resultados reproduzíveis. Uma acurácia elevada nesse dataset demonstra consistência técnica da implementação, não eficácia pedagógica em estudantes reais. A documentação de requisitos, critérios e limitações é mantida fora desta pasta de aplicação.
