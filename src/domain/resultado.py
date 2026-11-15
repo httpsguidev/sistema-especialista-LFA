@@ -16,3 +16,10 @@ class ResultadoAnalise:
     avisos: tuple[str, ...] = ()
     indiceAtencao: float | None = None
     regraGeralAplicada: str | None = None
+    orientacaoGeral: str | None = None
+
+
+@dataclass(frozen=True)
+class AnaliseGeral:
+    ranking: tuple[ResultadoAnalise, ...]
+    dadosInsuficientes: tuple[ResultadoAnalise, ...]
