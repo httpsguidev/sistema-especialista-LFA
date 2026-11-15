@@ -19,3 +19,8 @@ def validarHorasEstudo(horasEstudo: float) -> None:
         or not 0 <= horasEstudo <= 168
     ):
         raise ValueError("As horas de estudo devem estar entre 0 e 168.")
+
+
+def validarQuantidadeQuestao(quantidade: int, nomeCampo: str) -> None:
+    if isinstance(quantidade, bool) or not isinstance(quantidade, int) or quantidade < 0:
+        raise ValueError(f"{nomeCampo} deve ser uma quantidade inteira não negativa.")
