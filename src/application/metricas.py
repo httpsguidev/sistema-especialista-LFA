@@ -11,3 +11,18 @@ def calcularPercentualAcerto(
         return None
 
     return (questoesCorretas / questoesRealizadas) * 100
+
+
+def calcularPercentualErro(
+    questoesRealizadas: int,
+    questoesCorretas: int,
+) -> float | None:
+    percentualAcerto = calcularPercentualAcerto(
+        questoesRealizadas,
+        questoesCorretas,
+    )
+
+    if percentualAcerto is None:
+        return None
+
+    return 100 - percentualAcerto
